@@ -1,0 +1,153 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 32px;
+}
+a{
+    color: black;
+}
+#container{
+    width: 970px;
+}
+h2{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+#header, #body{
+    padding: 20px 24px 24px 24px;
+}
+#header{
+    height: 25px;
+    background-color: #f5f5f5;
+}
+#h-left{
+    width: 300px;
+    font-family: Courier New, Courier, monospace;
+    font-size: 17px;
+    display: inline-block;
+}
+#h-right{
+    float: right;
+    margin-right: 15px;
+    color: black;
+}
+#body{
+    height: 851px;
+    background: radial-gradient(#6e5963 60%, black )
+}
+#profile{
+    height:273px;
+}
+#prof-pic{
+    width: 400px; 
+    height: 263px;
+}
+#prof-left{
+    width: 400px;
+    height: 263px;
+    background-color: #c0c0c0;
+    margin: 0;
+    padding: 5px;
+    display: inline-block;
+}
+.content-paragraph, #prof-right, .tech-elements{
+    background: linear-gradient(to right, white, #dec4dc);
+}
+#prof-right{
+    width: 484px;
+    height: 273px;
+    margin-left: 22px;
+    display: inline-block;
+    vertical-align: top;
+}
+#about-bio{
+    padding: 11px 10px 0 10px;
+    display: inline-block;
+    font-size: 16px;
+}
+#projects{
+    width: 924px;
+    margin-top:24px;
+}
+.project-boxes{
+    width: 290px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 22px;
+}
+.content-header, .tech-header{
+    background: linear-gradient(#adadb2, #868593, #adadb2)
+}
+.project_img{
+    width: 290px; 
+    height: 150px;
+    display:block;
+}
+.content-header{
+    height: 20px;
+    padding: 11px;
+    color: #fff;
+
+}
+.content-paragraph{
+    height: 148px;
+    padding: 11px 10px 0 10px;
+    font-size: 14px;
+    text-align: justify;
+}
+.tech-header{
+    height: 18px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white; 
+    padding: 10px;
+}
+.tech-elements{
+    height: 150px;
+    padding: 6px;
+}
+.tech-emblem{
+    margin: 6px ;
+    width: 40px; 
+    height: 40px;
+    display: inline-block;
+}
+.button{
+    height: 25px;
+    background-color: #407d60;
+    border: 1px solid black;
+    color: white;
+    border-radius: 7px;
+    padding: 4px;
+    box-shadow: 3px 3px 4px #929192;
+    display: block;
+    margin: 5px auto;
+}
+#right-box{
+    margin-right:0px;
+}
+#footer{
+    height:70px;
+}
+.footer-text{
+    font-style: oblique;
+}
+#email{
+    margin: 10px 365px;
+    display: inline-block;
+}
+.social-media{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+#social{
+    margin: 5px 298px;
+    display: inline-block;
+}

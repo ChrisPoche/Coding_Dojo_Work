@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+}
+form{
+    padding: 10px 10px;
+    display: inline-block;
+}
+p{
+    text-align: left;
+}
+input{
+    width: 100px;
+    margin: 10px 0;
+}
+input#lastname{
+    width: 102px;
+}
+textarea{
+    height: 96px;
+    width: 177px;
+    padding: 3px;
+}
+#button{
+    background: linear-gradient(white, rgb(133, 133, 133));
+    border-radius: 2px;
+    padding: 2px;
+    box-shadow: 1px 1px 2px;
+}
+#cardBox{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 100px;
+}
+.cards{
+    width: 180px;
+    height: 85px;
+    border: 1px solid gray;
+    margin: 10px;
+    box-shadow: 2px 2px 4px gray;   
+    text-align: center;
+    font-family: sans-serif;
+    padding-top: 35px;
+    font-size: 68%; 
+}
+.cards p{
+    position: relative;
+    bottom: 5px;
+    text-align: center;
+}

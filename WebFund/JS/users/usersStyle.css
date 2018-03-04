@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+}
+table{
+    margin-top: 30px;
+    border: 1px solid black;
+}
+th{
+    width: 150px;
+    text-align: left; 
+}
+form{
+    width: 300px;
+    display: table;
+    text-align: right;
+}
+h1{
+    margin: 50px 0 15px 0;
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+input{
+    margin: 5px 0;
+}
+.button{
+    background: linear-gradient(white, rgb(133, 133, 133));
+    border-radius: 2px;
+    padding: 2px;
+    box-shadow: 1px 1px 2px;
+}

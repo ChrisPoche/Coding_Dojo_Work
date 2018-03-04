@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    display: inline-block;
+    margin-right: 50px;
+}
+.header{
+    height: 30px;
+    margin-bottom: 15px;
+    border-bottom: none;
+    text-align: center;
+}
+p{
+    display: inline-block;
+}
+div{
+    padding: 15px;
+    border-bottom: 3px solid black;
+    height: 100px;
+    width: 800px;
+}
+.bigBlue{
+    font-weight: bolder;
+    color: blue;
+}
