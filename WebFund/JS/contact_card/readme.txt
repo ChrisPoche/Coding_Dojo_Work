@@ -1,0 +1,1 @@
+Contact Card was an assingment meant to introduce creating dynamic content on my website, taking information from a form and making a corresponding card which can be flipped to display the bio/description on the back.
