@@ -1,0 +1,1 @@
+Portfolio was an assignment used to practice html and css skills by cloning a .png. It also gave me an opportunity to experiment with linear and radial gradients, and button manipulation.
