@@ -1,4 +1,4 @@
-"""#print 1-255
+#print 1-255
 for x in range (1,256):
     print x
 
@@ -65,12 +65,8 @@ for x in range(0,len(list)):
 print list
 
 #print min max avg
-sum = 0
 list = [1,2,3,4,5]
-for x in range(0,len(list)):
-    sum += list[x]
-avg = sum/len(list)
-print avg
+print sum(list)/len(list)
 print max(list)
 print min(list)
 
