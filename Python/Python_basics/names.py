@@ -28,8 +28,7 @@ users = {
 for keys in users.keys():
     print keys
     for x in range(0,len(users[keys])):
-        print users[keys][x]['first_name']+" "+users[keys][x]['last_name']
-
+        print "{} {}".format(users[keys][x]['first_name'],users[keys][x]['last_name'])
 """
 def names(users):
     for keys in users.keys():
