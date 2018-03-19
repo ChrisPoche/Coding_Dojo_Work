@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <p>Last blog created: {{request.session.name}}</p>
+    <p>Description: {{request.session.desc}}</p>
+    <p>Proudly Serving {{request.session.counter}} Blogs</p>
+    <form action="/create" method="post">
+        {% csrf_token %}
+        Blog Name: <input type="text" name="name" placeholder="blog name">
+        Description: <textarea name="desc" placeholder="description"></textarea>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

@@ -1,8 +1,6 @@
 from django.conf.urls import url
 from . import views
 
-print "made it to little urls"
-
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^new$', views.new),
