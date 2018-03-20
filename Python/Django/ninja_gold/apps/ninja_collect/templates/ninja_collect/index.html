@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Money</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'ninja_collect/css/style.css'%}">
+</head>
+<body>
+    <div id="container">
+        <h3>Your Gold: {{ total_gold }}</h3>
+        <form action="/reset">
+            <input type="submit" value="Declare Bankruptcy...">
+        </form>
+        <div class="locale">
+            <h1>Farm</h1>
+            <p>(earns 10-20 gold)</p>
+            <br>
+            <form action="/farm">
+            <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="locale">
+            <h1>Cave</h1>
+            <p>(earns 5-10 gold)</p>
+            <br>
+            <form action="/cave">
+            <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="locale">
+            <h1>House</h1>
+            <p>(earns 2-5 gold)</p>
+            <br>
+            <form action="/house">
+            <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="locale">
+            <h1>Casino</h1>
+            <p>(earns/takes 0-50 gold)</p>
+            <br>
+            <form action="/casino">
+            <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <br>
+        <h3>Activities:</h3>
+        <br>
+        <div id="activity">
+        {% for activities in activity_log %}
+        <p style="color: {{ activities.color }}">{{ activities.name }}</p>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
