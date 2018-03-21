@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'rest/css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h1>Add a new user</h1>
+        <form action="/create" method="POST">
+            {% csrf_token %}
+            <p>First Name:</p>
+            <input type="text" name="first_name"> 
+            <br>
+            <br>
+            <p>Last Name:</p>
+            <input type="text" name="last_name"> 
+            <br>
+            <br>
+            <p>Email:</p>
+            <input type="text" name="email"> 
+            <br>
+            <br>
+            <input type="submit" value="Create">
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'rest/css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h1>User {{ user.id }}</h1>
+        <br>
+        <p>Full Name: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Created At: {{ user.created_at }}</p>
+        <br>
+        <p><a href="/">Home</a> | <a href="/{{user.id}}/edit">Edit</a> | <a href="/{{user.id}}/destroy">Delete</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid red; */
+}
+#container{
+    width: 100%;
+    padding: 10px;
+}
+th{
+    text-align: left;
+}
+td{
+    padding-right: 10px;
+}
+table{
+    margin: 20px 0 20px 0;
+}
+form{
+    margin: 20px 0 20px 0;
+}
