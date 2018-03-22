@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Registration | Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_registration/css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h1>Success! Welcome, {{ logged_in_user }}!</h1>
+        <br>
+        <p>You've successfully {{ reg_or_log }}!</p>
+        <br>
+        <br>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
