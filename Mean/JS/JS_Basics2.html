@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Basics 2</title>
+</head>
+<body>
+    <!-- In this assignment, complete the function magic_multiply and ensure it passes all the test inputs and matches their results. Modify magic_multiply until all the tests pass. Do not create a new magic_multiply for each test! -->
+    <script>
+        function magic_multiply(x,y){
+            if(Array.isArray(x)){
+                for(i in x){
+                    x[i] *= y;
+                }
+            }
+            else if(typeof x === 'string'){
+                for(var i=0;i<y-2;i++){
+                    x += x;
+                }
+            }
+            else{
+                x *= y;
+            }
+            return x;
+        }
+        // Whenever we call magic_multiply for 5 and 2, the returned result should always be 10
+        let test1 = magic_multiply(5,2);
+        console.log(test1);
+        // => "All inputs 0"
+        let test2 = magic_multiply(0,0);
+        console.log(test2);
+        // => [2, 4, 6]
+        let test3 = magic_multiply([1, 2, 3], 2);
+        console.log(test3);
+        // => "Error: Can not multiply by string"
+        let test4 = magic_multiply(7, "three");
+        console.log(test4);
+        // => "BrendoBrendoBrendoBrendo"
+        let test5 = magic_multiply("Brendo", 4);
+        console.log(test5);
+    </script>
+</body>
+</html>
