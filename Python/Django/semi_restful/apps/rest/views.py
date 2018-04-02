@@ -36,4 +36,4 @@ def update(request, id):
     user.last_name = request.POST['last_name']
     user.email = request.POST['email']
     user.save()
-    return redirect('/{}'.format(user.id)) 
+    return redirect('/{}'.format(user.id))
