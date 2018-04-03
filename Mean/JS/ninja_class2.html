@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Class 2</title>
+</head>
+<body>
+    <script>
+            function Ninja(name){
+                this.name = name;
+                this.health = 100;
+                const speed = 3;
+                const strength = 3;
+                
+              
+                this.punch = function(otherNinja){
+                    if(otherNinja instanceof Ninja && otherNinja != this){ 
+                        otherNinja.health -= 5;
+                        console.log(otherNinja.name,"was punched by",this.name,"and lost 5 Health!");
+                        return this;
+                    }
+                }
+                this.kick = function(otherNinja){
+                    if(otherNinja instanceof Ninja && otherNinja != this){ 
+                        kickStrength = 15*this.strength;
+                        otherNinja.health -= kickStrength;
+                        console.log(otherNinja.name,'was kicked by',this.name,'and lost',kickStrength,'Health!');
+                        return this;
+                    }
+                }
+                this.sayName = function(){
+                    console.log("My ninja name is",this.name);
+                    return this;
+                }
+                this.showStats = function(){
+                    this.strength = sayStrength();
+                    this.speed = saySpeed();
+                    console.log('Name:',this.name,"Health:",this.health,'Speed:',this.speed,"Strength:",this.strength);
+                    return this;
+                }
+                this.drinkSake = function(){
+                    this.health += 10;
+                    return this;
+                }
+                function sayStrength(){
+                    return strength;
+                }
+                function saySpeed(){
+                    return speed;
+                }
+            }
+            
+            const redPowerRanger = new Ninja('Jason');
+            const bluePowerRanger = new Ninja('Billy');
+            bluePowerRanger.sayName();
+            bluePowerRanger.showStats();
+            redPowerRanger.sayName();
+            redPowerRanger.showStats();
+            redPowerRanger.kick(bluePowerRanger);
+            bluePowerRanger.showStats();
+            bluePowerRanger.kick(redPowerRanger);
+            redPowerRanger.showStats();
+            console.log(bluePowerRanger.strength);
+            const pinkPowerRanger = new Ninja('Kimberly')
+            pinkPowerRanger.showStats();
+    
+        </script>
+</body>
+</html>
