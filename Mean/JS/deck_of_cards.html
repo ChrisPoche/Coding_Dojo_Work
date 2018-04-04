@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck of Cards</title>
+</head>
+<body>
+    <script>
+        var suits = ['Hearts','Diamonds','Spades','Clubs'];
+        var values = [
+            {value:'2',pointVal:2},
+            {value:'3',pointVal:3},
+            {value:'4',pointVal:4},
+            {value:'5',pointVal:5},
+            {value:'6',pointVal:6},
+            {value:'7',pointVal:7},
+            {value:'8',pointVal:8},
+            {value:'9',pointVal:9},
+            {value:'10',pointVal:10},
+            {value:'J',pointVal:10},
+            {value:'Q',pointVal:10},
+            {value:'K',pointVal:10},
+            {value:'A',pointVal:[1,11]}
+            ];
+        class Deck{
+            constructor(){
+                this.deck = [];
+                for(var suit=0;suit<suits.length;suit++){
+                    for(var i = 0 ; i < values.length ; i++){
+                        var card = {'card' : `${values[i].value} of ${suits[suit]}`, 'pointVal' : values[i].pointVal};
+                        this.deck.push(card);
+                    }
+                }
+            }
+            shuffle(){
+                var lastUnshuffledSpace = this.deck.length;
+                while(lastUnshuffledSpace){
+                    var card = Math.floor(Math.random()*lastUnshuffledSpace--);
+                    var temp = this.deck[lastUnshuffledSpace];
+                    this.deck[lastUnshuffledSpace] = this.deck[card];
+                    this.deck[card] = temp;
+                }
+            return this.deck;
+            }
+            reset(){
+                this.deck = [];
+                for(var suit=0;suit<suits.length;suit++){
+                    for(var value=0;value<values.length;value++){
+                        var card = `${values[value]} of ${suits[suit]}`;
+                        this.deck.push(card);
+                    }
+                }
+                return this.deck;
+            }
+            deal(){
+                var dealtCard = this.deck[0];
+                for(var card=0;card<this.deck.length-1;card++){
+                    this.deck[card] = this.deck[card+1];
+                }
+                this.deck.pop();
+                return dealtCard;
+            }
+        }
+        done = [];
+        playerCount = 0;
+        class Player{
+            constructor(name){
+                this.name = name;
+                this.hand = [];
+                this.handVal = 0;
+                playerCount++;
+                
+            }
+            sortHand(hand,card){
+                let temp = hand[card];
+                hand[card] = hand[hand.length-1];
+                hand[hand.length-1] = temp;
+                return hand;
+            }
+            acesAreHighLow(handVal,sorted){
+                this.handVal = handVal;
+                if(this.handVal + 11 <= 21){
+                    this.handVal += this.hand[sorted].pointVal[1];
+                }
+                else if(this.handVal > 21){
+                    return this.handVal;
+                }
+                else if(this.handVal + 11 > 21){
+                    this.handVal += this.hand[sorted].pointVal[0];
+                }
+                return this.handVal;
+            }
+            updateHandVal(){
+                if(this.hand.length < 2){
+                    if(typeof this.hand[0].pointVal == 'object'){
+                        this.handVal += this.hand[0].pointVal[1];
+                        return this.handVal;
+                    }
+                    else{
+                        this.handVal += this.hand[0].pointVal;
+                        return this.handVal;
+                    }
+                }
+                else{
+                    for(var card = 0; card < this.hand.length ; card++){
+                        if(typeof this.hand[card].pointVal == 'object' && card != this.hand.length-1 && this.secondCardHidden == false){
+                            this.hand = this.sortHand(this.hand,card);
+                        }
+                    }
+                    this.handVal = 0;
+                    for(var sorted = 0; sorted < this.hand.length; sorted++){
+                        if(typeof this.hand[sorted].pointVal != 'object'){
+                            this.handVal += this.hand[sorted].pointVal;
+                        }
+                        else if(typeof this.hand[sorted].pointVal == 'object'){
+                            this.handVal = this.acesAreHighLow(this.handVal,sorted); 
+                        }
+                    }
+                }
+                if((this.hand.length == 2 && this.name != 'Dealer') || (this.hand.length == 2 && this.name == 'Dealer' && this.secondCardHidden == false)){
+                    console.log(`${this.name} is at ${this.handVal} - ${this.hand[0].card}, ${this.hand[1].card}`);                        
+                    console.log(" ");
+                }
+                if(this.hand.length == 2 && this.name == 'Dealer' && this.secondCardHidden == true){
+                    console.log(`${this.name} is at a known value of ${this.hand[0].pointVal}`);                        
+                    console.log(" ");
+                }
+                if(this.hand.length == 3){
+                    console.log(`${this.name} is at ${this.handVal} - ${this.hand[0].card}, ${this.hand[1].card}, ${this.hand[2].card}`);                        
+                }
+                if(this.hand.length == 4){
+                    console.log(`${this.name} is at ${this.handVal} - ${this.hand[0].card}, ${this.hand[1].card}, ${this.hand[2].card}, ${this.hand[3].card}`);                        
+                }
+                if(this.hand.length == 5){
+                    console.log(`${this.name} is at ${this.handVal} - ${this.hand[0].card}, ${this.hand[1].card}, ${this.hand[2].card}, ${this.hand[3].card}, ${this.hand[4].card}`);                        
+                }
+                if(this.hand.length == 6){
+                    console.log(`${this.name} is at ${this.handVal} - ${this.hand[0].card}, ${this.hand[1].card}, ${this.hand[2].card}, ${this.hand[3].card}, ${this.hand[4].card}, ${this.hand[5].card}`);                        
+                }
+                return this.handVal;
+            }
+            dealTo(deck){
+                var card = deck.deal();
+                this.hand.push(card);
+                this.secondCardHidden = true;
+                if(this.name == 'Dealer' && this.hand.length == 2){
+                    console.log(`${this.name.toUpperCase()}'s second card is hidden`);
+                    
+                }
+                else{
+                console.log(this.name.toUpperCase(),"got",card.card);
+                }
+                this.handVal = this.updateHandVal();
+                if(this.handVal == 21){
+                    if(this.name == "Dealer"){
+                        this.houseAlwaysWins();
+                        return;
+                    }
+                    console.log("WINNER, WINNER, CHICKEN DINNER!!!");
+                    done.push({ name : this.name, finalVal : this.handVal, handLength : this.hand.length});
+                    return this.hand;
+                }
+            }
+            dealerFlip(){
+                if(this.name == "Dealer" && done.length != playerCount-1){
+                    console.log("THE DEALER CANNOT FLIP UNTIL ALL PLAYERS HAVE PLAYED");
+                    return;
+                }
+                else{
+                    Dealer.secondCardHidden = false;
+                    this.updateHandVal();
+                }
+            }
+            saysHitMe(deck){
+                if(this.name == "Dealer" && done.length != playerCount-1){
+                    console.log("THE DEALER ALWAYS PLAYS LAST");
+                    return;
+                }
+                if(done.length>0){
+                    for(let p=0;p<done.length;p++){
+                        if(this.name == done[p].name){
+                            console.log("You're already out, you can't have another card");
+                            console.log(" ");
+                            return;
+                        }
+                    }
+                }
+                if(done.length>0 || done.length == 0){
+                    var card = deck.deal();
+                    this.hand.push(card);
+                    console.log(this.name,"got",card.card);
+                    console.log(" ");
+                    this.handVal = this.updateHandVal(this.handVal);
+                    if(this.handVal>21){
+                        console.log(`${this.name} BUSTS`);
+                        console.log(" ");
+                        done.push({ name : this.name, finalVal : this.handVal, handLength : this.hand.length});
+                        this.gameOverCheck();
+                    }
+                    if(this.handVal == 21){
+                        if(this.name == "Dealer"){
+                            this.gameOverCheck();
+                            return;
+                        }
+                        console.log("BLACKJACK!");
+                        console.log(" ");
+                        done.push({ name : this.name, finalVal : this.handVal, handLength : this.hand.length});
+                        this.gameOverCheck();
+                    }
+                    if(this.handVal <= 10){
+                        console.log("You should probably hit again...");
+                        console.log(" ");
+                    }
+                    return this.hand;
+                }
+            }
+            discardCard(cardNum){
+                if(this.name == "Dealer" && done.length != playerCount-1){
+                    console.log("THE DEALER ALWAYS PLAYS LAST");
+                    return;
+                }
+                for(let i = cardNum-1;i<this.hand.length-1;i++){
+                    this.hand[i] = this.hand[i+1];
+                }
+                this.hand.pop();
+                return this.hand;
+            }
+            saysStay(){
+                if(done.length>0){
+                    for(let p=0;p<done.length;p++){
+                        if(this.name == done[p].name){
+                            console.log("We already knew that, are you even paying attention?");
+                            console.log(" ");
+                            return;
+                        }
+                    }
+                }
+                if(done.length > 0 || done.length == 0){
+                    done.push({ name : this.name, finalVal : this.handVal, handLength : this.hand.length});                    
+                    this.gameOverCheck();
+                    return this;
+                }
+            }
+            gameOverCheck(){
+                console.log("PLAYERS DONE WITH HAND:",done.length);
+                if(done.length == playerCount-1 && done[0].finalVal > 21 && done[1].finalVal > 21){
+                        this.houseAlwaysWins();
+                        return;
+                }
+                if(done.length != playerCount){
+                    return;
+                }
+                else{
+                    var winners = [];
+                    var dealers_count = done[done.length-1].finalVal;
+                    if(dealers_count > 21){
+                        dealers_count = 0;
+                    }
+                    for(var players=0; players<done.length-1;players++){
+                        if(done[players].finalVal <= 21){
+                            if(done[players].finalVal > dealers_count){
+                                winners.push(done[players]);
+                            }
+                            else if(done[players].finalVal == 21 && done[players].finalVal == dealers_count && done[players].handLength == 2){
+                                winners.push(done[players]);
+                            }
+                        }
+                    }
+                    if(winners.length>0){
+                        for(let num=0;num<winners.length;num++){
+                            console.log(" ");
+                            console.log(`${winners[num].name} Wins!`);
+                        }
+                    }
+                    else{
+                        this.houseAlwaysWins();
+                    }
+                }
+            }
+            houseAlwaysWins(){
+                done.push({ name : 'Jack'});
+                done.push({ name : 'Graham'});
+                console.log("The House always wins...".toUpperCase)
+                console.log(" ");
+                return;
+            }
+        }
+       
+
+        const Jack = new Player('Jack');
+        const Graham = new Player('Graham');
+        const Dealer = new Player('Dealer');
+        Dealer.__proto__.secondCardHidden = true;
+        const deck = new Deck();
+        deck.shuffle();
+        console.log("DEALING A NEW GAME:");
+        console.log(" ");
+        Jack.dealTo(deck);
+        Graham.dealTo(deck);
+        Dealer.dealTo(deck);
+        Jack.dealTo(deck);
+        Graham.dealTo(deck);
+        Dealer.dealTo(deck);
+        if(done.length != playerCount){
+            console.log("Jack's Hand:",Jack.hand);
+            console.log("The Jack's Hand Value:",Jack.handVal);
+            console.log(" ");
+            console.log("Graham's Hand:",Graham.hand);
+            console.log("The Graham's Hand Value:",Graham.handVal);
+            console.log(" ");
+            console.log(`The Dealer's Hand: ${Dealer.hand[0].card} & hidden value`);
+            console.log(`The Dealer's Hand Value is between ${Dealer.hand[0].pointVal+2} & ${Dealer.hand[0].pointVal+11}`);            
+            console.log(" ");
+        }
+
+    </script>
+</body>
+</html>
