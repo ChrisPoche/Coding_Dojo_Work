@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+    <style>
+        body{
+            width: 800px;
+        }
+        #result{
+            outline: 1px solid black;
+            margin: 40px auto;
+            display: block;
+            padding: 20px;
+        }
+        h3{
+            text-decoration: underline;
+            text-decoration-style: solid;
+        }
+        .answer{
+            display: block;
+        }
+        p{
+            display: inline-block;
+            margin-right: 15px;
+        }
+        button{
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">
+        <h3>Submitted Information</h3>
+        <div class="answer">
+            <p>Name:</p>
+            <p><%= forminfo.name %></p>
+        </div>
+        <div class="answer">
+            <p>Dojo Location:</p>
+            <p><%= forminfo.dojo %></p>
+        </div>
+        <div class="answer">
+            <p>Favorite Language:</p>
+            <p><%= forminfo.favlang %></p>
+        </div>
+        <div class="answer">
+            <p>Comment:</p>
+            <p><%= forminfo.comment %></p>
+        </div>
+        <form action="/" method="GET">
+            <button>Go Back</button>
+        </form>
+    </div>
+</body>
+</html>

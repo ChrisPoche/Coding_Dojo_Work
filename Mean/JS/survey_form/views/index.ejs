@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    <style>
+        body{
+            width: 800px;
+        }
+        form{
+            outline: 1px solid black;
+            margin: 40px auto;
+            display: block;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/post" method="POST">
+        <br>
+        Your Name: <input type="text" name="name">
+        <br>
+        <br>
+        Dojo Location: <select name="dojo">
+            <option value="Chicago">Chicago</option>
+            <option value="San Jose">San Jose</option>
+            <option value="LA">LA</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Dallas">Dallas</option>
+            <option value="DC">DC</option>
+            <option value="Tulsa">Tulsa</option>
+        </select>
+        <br>
+        <br>
+        Favorite Language: <select name="favlang">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            <option value="HTML">HTML</option>
+            <option value="Ruby">Ruby</option>
+        </select>
+        <br>
+        <br>
+        Comment (optional):
+        <br>
+        <textarea name="comment" cols="40" rows="10"></textarea>
+        <br>
+        <br>
+        <input type="submit" name="Submit">
+        <br>
+    </form>
+</body>
+</html>
