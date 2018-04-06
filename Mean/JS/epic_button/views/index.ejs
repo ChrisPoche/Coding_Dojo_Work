@@ -1,0 +1,62 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PUSH THE EPIC BUTTON!!!</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        #container{
+            margin: 40px auto;
+            text-align: center;
+            align-content: center;
+        }
+        button{
+            color: white;
+            outline: transparent;
+        }
+        #reset{
+            background-color: red;
+        }
+        #epic{
+            background-color: blue;
+            width: 310px;
+            height: 160px;
+            font-size: 43px;
+            border-radius: 41px;
+            margin-bottom: 30px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+        $(document).ready(function(){
+            var socket = io.connect();
+            socket.emit('startup_count_update') //pings the server to receive the updated count
+            console.log("loaded up");
+            $('#epic').click(function(){
+                console.log("EPIC BUTTON WAS CLICKED");
+                socket.emit('epic_button_clicked');
+            })
+            socket.on('count_update',function(count){
+                console.log('Server Says the Count is up to',count.count);
+                $('span').html(`${count.count}`);
+            })
+            $('#reset').click(function(){
+                console.log("RESET BUTTON WAS CLICKED");
+                socket.emit('reset_button_clicked');
+            })
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div><h1>The button has been pushed <span></span> times</h1>
+        <br>
+        <p>Push the button to update the count!</p>
+        <button id="epic" type="button">Push the epic button</button>
+        <br>
+        <button id="reset" type="button">Reset count</button>
+    </div>
+</body>
