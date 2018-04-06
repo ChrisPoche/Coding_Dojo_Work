@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    <style>
+        body{
+            width: 800px;
+        }
+        form, #box{
+            outline: 1px solid black;
+            margin: 40px auto;
+            display: block;
+            padding: 20px;
+        }
+        #box{
+            background-color: rgba(0, 0, 0, .1)
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io.connect();
+            $('form').submit(function(submit){
+                var formdata = $(this).serializeArray();
+                socket.emit('posting_form', {formdata : formdata});
+                submit.preventDefault();
+            });
+            socket.on('updated_message', function(formdata){
+                var randnum = formdata.randnum;
+                var formdata = formdata.forminfo;
+                $('body').prepend(`<div id="box"><p>You emitted the following information to the server:</p><p>${formdata}</p><br><p>Your lucky number emitted by the server is ${randnum}</p></div>`);
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <form action="">
+        <br>
+        Your Name: <input type="text" name="name">
+        <br>
+        <br>
+        Dojo Location: <select name="location" autocomplete="dojo-location">
+            <option value="Chicago">Chicago</option>
+            <option value="San Jose">San Jose</option>
+            <option value="LA">LA</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Dallas">Dallas</option>
+            <option value="DC">DC</option>
+            <option value="Tulsa">Tulsa</option>
+        </select>
+        <br>
+        <br>
+        Favorite Language: <select name="language" autocomplete="favorite-language">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            <option value="HTML">HTML</option>
+            <option value="Ruby">Ruby</option>
+        </select>
+        <br>
+        <br>
+        Comment (optional):
+        <br>
+        <textarea name="comment" cols="40" rows="10"></textarea>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        <br>
+    </form>
+</body>
+</html>
