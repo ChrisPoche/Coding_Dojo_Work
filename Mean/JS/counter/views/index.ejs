@@ -1,0 +1,29 @@
+<style>
+    body{
+        width: 800px;
+    }
+    h1{
+        margin-top: 40px;
+        text-align: center;
+        display: block;
+    }
+    p{
+        text-align: center;
+        display: block;
+    }
+    button{
+        margin: 10px auto;
+        display: block;
+    }
+</style>
+<body>
+    <h1>Counter</h1>
+    <p><%= count_total %> times.</p>
+    <br>
+    <form action="/plus2">
+        <button type="submit" formmethod="POST">+2</button>
+    </form>
+    <form action="/reset">
+        <button type="submit" formmethod="POST">reset</button>
+    </form>
+</body>
