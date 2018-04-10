@@ -1,0 +1,23 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Quotes</title>
+    <style>
+        body{
+            padding: 20px;
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Here are the awesome quotes!</h1>
+    <br>
+    <% for(var x=users.length-1;x>=0;x--){ %>
+        <p>"<%= users[x].quote %>"</p>
+        <p>-<%= users[x].name %></p>
+        <hr>
+    <% } %>
+    <a href="/">Go Back To Add Even More Quotes!</a>
+</body>
