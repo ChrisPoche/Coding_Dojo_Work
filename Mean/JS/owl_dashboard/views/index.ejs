@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to the Parliament!</title>
+    <style>
+        body{
+            padding:25px;
+        }
+        .owl{
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Parliament! </h1>
+    <h2>Role Call</h2>
+    <% for(owl in owls){ %>
+        <div class="owl">
+            <h3>Name:<a href="/owls/<%= owls[owl].id %>"><%= owls[owl].name  %></a></h3>
+            <h3>Species: <%= owls[owl].species  %></h3>
+            <h3>Distinctive Accessory: <%= owls[owl].accessory  %></h3>
+        </div>
+    <% } %>
+    <br>
+    <br>
+    <a href="/owls/new">Add a new Owl</a>
+</body>

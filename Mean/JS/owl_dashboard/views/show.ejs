@@ -1,0 +1,29 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= owl.name %>'s Page</title>
+    <style>
+        body{
+            padding:25px;
+        }
+        form{
+            display: inline;
+        }
+        p:last-of-type{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to <%= owl.name %>'s page!</h1>
+    <h3><%= owl.name %> is a <%= owl.species %>, and is rarely seen without a <%= owl.accessory %>.</h3>
+    <p>If any of the above information is incorrect, you can edit it <a href="/owls/edit/<%= owl.id %>">here</a></p>
+    <p>Or if you want to delete this profile click here --></p>
+    <form action="/owls/destroy/<%= owl.id %>" method="POST">
+        <input type="submit" name="submit" value="delete profile">
+    </form>
+    <br>
+    <br>
+    <a href="/">Or return to Parliament</a>
+</body>
