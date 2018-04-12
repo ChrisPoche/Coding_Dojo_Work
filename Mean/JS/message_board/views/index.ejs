@@ -1,0 +1,72 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Dojo Message Board</title>
+    <style>
+        body{
+            padding: 10px;
+        }
+        .create-message{
+            margin: 10px 0 0 20px;
+        }
+        .create-comment{
+            margin: 40px 0 0 18px;
+        }
+        .display-message{
+            margin: 10px 0 0 20px;
+        }
+        .display-comment{
+            margin: 40px 0 0 20px;
+            line-height: .5;
+        }
+        .display-comment:first-of-type{
+            margin: 0 0 0 20px;
+        }
+        #mpost{
+            margin-left: 534px;
+        }
+        #cpost{
+            margin-left: 514px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Dojo Message Board</h1>
+    <hr>
+    <div class="create-message">
+        <form action="/new" method="POST">
+            <h3>Name:</h3>
+            <input type="text" name="name">
+            <h3>Message:</h3>
+            <textarea name="message" id="" cols="100" rows="5"></textarea>
+            <br>
+            <br>
+            <input type="submit" name="submit" id="mpost" value="Post message">
+        </form>
+    </div>
+    <% for(var message in messages){ %>
+        <div class="display-message">
+            <h2>Name: <%= messages[message].name %></h2>
+            <h2>Message: <%= messages[message].text %></h2>
+            <% for(var i=0; i< messages[message].comments.length ; i++){ %>
+                <div class="display-comment">
+                    <h5>Name: <%= messages[message].comments[i].name %></h5>
+                    <h5>Message: <%= messages[message].comments[i].text %></h5>
+                </div>
+            <% } %>
+            <div class="create-comment">
+                    <form action="/new_comment/<%= messages[message].id %>" method="POST">
+                        <h5>Name:</h5>
+                        <input type="text" name="name">
+                        <h5>Comment:</h5>
+                        <textarea name="comment" id="" cols="97" rows="3"></textarea>
+                        <br>
+                        <br>
+                        <input type="submit" name="submit" id="cpost" value="Post comment">
+                    </form>
+                </div>  
+        </div>
+    <% } %>
+
+</body>
