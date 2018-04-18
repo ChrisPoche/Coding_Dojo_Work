@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+</div>
+  <br>
+  <br>
+<div *ngIf="tasks" style="width: 500px; margin: 0 auto;">
+  <h1 style="text-align: center">All the tasks:</h1>
+  <ul>
+    <li *ngFor="let task of tasks">{{ task.title }} - {{task.description}}</li>
+  </ul>
+</div>
+<div *ngIf="tasks.length >= 3" style="width: 500px; margin: 0 auto;">
+  <br>
+  <h1 style="text-align: center">The third task:</h1>
+  <ul>
+    <li>{{ tasks[2].title }} - {{tasks[2].description}}</li>
+  </ul>
+</div>
+  
