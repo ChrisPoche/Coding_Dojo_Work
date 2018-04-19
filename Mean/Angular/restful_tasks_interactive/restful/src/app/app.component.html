@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+  <button style="width: 150px; height: 56px; background: linear-gradient(lightgray,slategray); border:none; color:white; font-weight: 700; outline: none;" (click)="onButtonClick()">Click to get all tasks</button>
+</div>
+  <br>
+<div *ngIf="tasks" style="width: 500px; margin: 0 auto;">
+  <ul>
+    <li *ngFor="let task of tasks">{{ task.title }} - {{task.description}}</li>
+  </ul>
+</div>
+<br>
+<div style="width: 370px; margin: 0 auto;">  
+<form style="display: inline;">
+  <input (keyup)="onKeyup($event)" type="text" name="task_keyword" style="padding-left: 10px; height: 50px; font-size: 20px;">
+</form>
+<button (click)="onButtonClickRand()" style="margin-left: 10px; vertical-align:top; width: 150px; height: 56px; background: linear-gradient(lightgray,slategray); border:none; color:white; font-weight: 700; outline: none;">Click to get one task</button>
+</div>
+<div *ngIf="rand_task" style="width: 500px; margin: 0 auto;">
+    <h2>Here's something you can do:</h2>
+  <ul>
+    <li>{{ rand_task.title }} - {{ rand_task.description }}</li>
+  </ul>
+</div>  
+<div *ngIf="task_search" style="width: 500px; margin: 0 auto;">
+  <h2>Search Results:</h2>
+  <ul>
+    <li *ngFor="let task of task_search">{{ task.title }} - {{ task.description }}</li>
+  </ul>
+</div>  
