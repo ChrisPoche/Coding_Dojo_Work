@@ -1,0 +1,49 @@
+<div id="container">
+  <h1>Task List</h1>
+  <div id="task-list">
+    <div class="task-box" *ngFor="let task of tasks">
+      <div class="left-task">
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+      </div>
+      <div class="right-task">
+        <button class="button-blue box" (click)="onButtonClickEdit(task)">EDIT</button>
+        <br>
+        <button class="button-red" (click)="onButtonClickDelete(task)">DELETE</button>
+      </div>
+    </div>
+  </div>
+  <div id="box-right">
+    <div *ngIf="edit" id="edit-task">
+      <h1>Edit a task</h1>
+      <form (submit)="onSubmitEdit()">
+        Title: <input type="text" name="editTask.title" [(ngModel)]="editTask.title">
+        <br>
+        <br>
+        Description: <input type="text" name="editTask.description" [(ngModel)]="editTask.description">
+        <br>
+        <br>
+        Keyword(s): <input type="text" name="editTask.keyword" [(ngModel)]="editTask.keyword">
+        <br>
+        <input type="submit" value="EDIT" class="button-blue box"(click)="onButtonClickEdit()">
+      </form>
+      <p>title: {{editTask.title | json}} description: {{editTask.description | json}} keyword: {{editTask.keyword | json}}</p>
+    </div>
+    <div class="new new-wo">
+      <h1>New Task</h1>
+      <form (submit)="onSubmitCreate()">
+        Title: <input type="text" name="newTask.title" [(ngModel)]="newTask.title"/>
+        <br>
+        <br>
+        Description: <input type="text" name="newTask.description" [(ngModel)]="newTask.description"/>
+        <br>
+        <br>
+        Keyword(s): <input type="text" name="newTask.keyword" [(ngModel)]="newTask.keyword"/>
+        <br>
+        <br>
+        <input type="submit" class="button-green" (click)="onButtonClick()" value="Create"/>
+      </form>
+      <p>title: {{newTask.title | json}} description: {{newTask.description | json}} keyword: {{newTask.keyword | json}}</p>
+    </div>
+  </div>
+</div>
