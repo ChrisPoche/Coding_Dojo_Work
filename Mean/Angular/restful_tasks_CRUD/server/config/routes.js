@@ -3,7 +3,7 @@ module.exports = function(app){
     app.get('/',function(req,res){              // RENDER INDEX
         tasks.index(req,res);
         })
-    app.post('/',function(req,res){             // CREATE NEW TASK
+    app.post('/',function(req,res){  
         tasks.create(req,res);
     })
     app.get('/tasks', function(req, res){          // SHOW ALL TASKS (READ)
