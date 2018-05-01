@@ -1,0 +1,10 @@
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/bin/Debug/netcoreapp2.0/boxingPrac.deps.json
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/bin/Debug/netcoreapp2.0/boxingPrac.runtimeconfig.json
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/bin/Debug/netcoreapp2.0/boxingPrac.runtimeconfig.dev.json
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/bin/Debug/netcoreapp2.0/boxingPrac.dll
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/bin/Debug/netcoreapp2.0/boxingPrac.pdb
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/obj/Debug/netcoreapp2.0/boxingPrac.csproj.CoreCompileInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/obj/Debug/netcoreapp2.0/boxingPrac.AssemblyInfoInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/obj/Debug/netcoreapp2.0/boxingPrac.AssemblyInfo.cs
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/obj/Debug/netcoreapp2.0/boxingPrac.dll
+/Users/Chris/Desktop/GitHub/CSharp/boxingPrac/obj/Debug/netcoreapp2.0/boxingPrac.pdb
