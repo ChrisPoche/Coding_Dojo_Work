@@ -19,7 +19,8 @@ namespace basic13
             DeleteNegNum(new List<int>() {1,5,10,-2});
             MinMaxAvg(new List<double>() {1,5,9,-2});
             ArrayShift(new List<int>() {1,5,10,7,-2});
-            NumToString(new List<object>() {1,5,10,-2});
+            object[] boxedArray = new object[] {1,-2,-6,4};
+            NumToString(boxedArray);
         }
         public static void PrintAll(){
             for(short i=1; i<=255; i++){
@@ -115,15 +116,14 @@ namespace basic13
             X.RemoveAt(0);
             X.Add(0);
         }
-        public static void NumToString(List<object> X){
-            for(var i=0; i<X.Count; i++){
-                int a = Convert.ToInt32(X[i]);
-                if(a < 0){
-                    X[i] = "Dojo";
+        public static void NumToString(object[] arr){
+            for(var i=0; i<arr.Length; i++){
+                if((int)arr[i] < 0){
+                    arr[i] = "Dojo";
                 }
             }
-            for(var i=0; i<X.Count; i++){
-                Console.WriteLine($"Arr[{i}]: {X[i]}");
+            for(var i=0; i<arr.Length; i++){
+                Console.WriteLine($"Arr[{i}]: {arr[i]}");
             }
         }
     }
