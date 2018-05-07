@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date and Time</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        h1,h2{
+            font-family: sans-serif;
+            font-weight: 300;
+            text-align: center;
+        }
+        .box{
+            width:260px; 
+            padding: 5px 10px; 
+            outline: 1px solid black;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>The current time and date:</h2>
+    <div class="box">
+        @{
+            DateTime CurrentTime = DateTime.Now.ToLocalTime();
+            string monthFormat = "MMM d, yyyy";
+            string Month = CurrentTime.ToString(monthFormat);
+            string Time = CurrentTime.ToString("t");
+        <h1>@Month</h1>
+        <h1>@Time</h1>
+        }
+        
+    </div>
+</body>
+</html>
