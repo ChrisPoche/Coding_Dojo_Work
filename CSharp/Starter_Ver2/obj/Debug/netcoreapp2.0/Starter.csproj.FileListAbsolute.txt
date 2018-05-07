@@ -1,0 +1,10 @@
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/bin/Debug/netcoreapp2.0/Starter.deps.json
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/bin/Debug/netcoreapp2.0/Starter.runtimeconfig.json
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/bin/Debug/netcoreapp2.0/Starter.runtimeconfig.dev.json
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/bin/Debug/netcoreapp2.0/Starter.dll
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/bin/Debug/netcoreapp2.0/Starter.pdb
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/obj/Debug/netcoreapp2.0/Starter.csproj.CoreCompileInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/obj/Debug/netcoreapp2.0/Starter.AssemblyInfoInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/obj/Debug/netcoreapp2.0/Starter.AssemblyInfo.cs
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/obj/Debug/netcoreapp2.0/Starter.dll
+/Users/Chris/Desktop/GitHub/CSharp/Starter_Ver2/obj/Debug/netcoreapp2.0/Starter.pdb
