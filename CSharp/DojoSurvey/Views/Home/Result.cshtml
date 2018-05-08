@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey Result</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        h1{
+            text-decoration: 1px solid black;
+        }
+        .box{
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submitted Info</h1>
+    <div class="box">
+        <p>Name:</p>
+        <p>Dojo Location:</p>
+        <p>Favorite Language:</p>
+        <p>Comment:</p>
+    </div>
+    <div class="box">
+        <p>@ViewBag.name</p>
+        <p>@ViewBag.location</p>
+        <p>@ViewBag.language</p>
+        <p>@ViewBag.comment</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form action="/" method="GET">
+        <input type="submit" value="Go Back">
+    </form>
+</body>
+</html>

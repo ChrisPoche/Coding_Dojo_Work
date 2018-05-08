@@ -1,0 +1,10 @@
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/bin/Debug/netcoreapp2.0/DojoSurvey.deps.json
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/bin/Debug/netcoreapp2.0/DojoSurvey.runtimeconfig.json
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/bin/Debug/netcoreapp2.0/DojoSurvey.runtimeconfig.dev.json
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/bin/Debug/netcoreapp2.0/DojoSurvey.dll
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/bin/Debug/netcoreapp2.0/DojoSurvey.pdb
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/obj/Debug/netcoreapp2.0/DojoSurvey.csproj.CoreCompileInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/obj/Debug/netcoreapp2.0/DojoSurvey.AssemblyInfoInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/obj/Debug/netcoreapp2.0/DojoSurvey.AssemblyInfo.cs
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/obj/Debug/netcoreapp2.0/DojoSurvey.dll
+/Users/Chris/Desktop/GitHub/CSharp/DojoSurvey/obj/Debug/netcoreapp2.0/DojoSurvey.pdb
