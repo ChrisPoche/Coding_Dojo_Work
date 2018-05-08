@@ -1,0 +1,10 @@
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/obj/Debug/netcoreapp2.0/RandPassGen.csproj.CoreCompileInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/obj/Debug/netcoreapp2.0/RandPassGen.AssemblyInfoInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/obj/Debug/netcoreapp2.0/RandPassGen.AssemblyInfo.cs
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/bin/Debug/netcoreapp2.0/RandPassGen.deps.json
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/bin/Debug/netcoreapp2.0/RandPassGen.runtimeconfig.json
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/bin/Debug/netcoreapp2.0/RandPassGen.runtimeconfig.dev.json
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/bin/Debug/netcoreapp2.0/RandPassGen.dll
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/bin/Debug/netcoreapp2.0/RandPassGen.pdb
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/obj/Debug/netcoreapp2.0/RandPassGen.dll
+/Users/Chris/Desktop/GitHub/CSharp/RandPassGen/obj/Debug/netcoreapp2.0/RandPassGen.pdb

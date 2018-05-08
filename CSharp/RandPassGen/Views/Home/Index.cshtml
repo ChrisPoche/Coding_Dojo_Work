@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Passcode Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <style>
+        *{
+            text-align: center;
+            font-family: sans-serif;
+        }
+        body{
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        .box{
+            margin: 0 auto;
+            width: 210px;
+            padding: 1px;
+            outline: 3px solid black;
+        }
+        #button{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Random passcode (passcode #@ViewBag.PassNum)</p>
+    <br>
+    <div class="box">
+        <h3>@ViewBag.RandomPass</h3>
+    </div>
+    <br>
+    <br>
+    <form action="/" method="GET">
+        <input id="button" type="submit" value="Generate">
+        <input type="submit" value="Page Reload Generate">
+    </form>
+</body>
+</html>
