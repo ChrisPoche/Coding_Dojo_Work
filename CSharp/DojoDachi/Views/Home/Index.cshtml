@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojodachi</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/style.css"/>
+</head>
+<body>
+    <div id="header">
+        <p class="attr attr-space">Fullness: @TempData["fullness"]</p>
+        <p class="attr attr-space">Happiness: @TempData["happiness"]</p>
+        <p class="attr attr-space">Meals: @TempData["meals"]</p>
+        <p class="attr">Energy: @TempData["energy"]</p>
+    </div>
+    <div class="box @TempData["emotion"]">
+        <img src="@TempData["pic"]" alt="@TempData["emotion"] DojoDachi">
+       <p>@TempData["message"]</p>
+    </div>
+    @{
+        if(@TempData["alive"] == "true")
+        {
+            <div id="buttons">
+                <form id="Feed" action="/feed" method="POST">
+                    <input class="button" type="submit" value="Feed">
+                </form>
+                <form id="Play" action="/play" method="POST">
+                    <input class="button" type="submit" value="Play">
+                </form>
+                <form id="Work" action="/work" method="POST">
+                    <input class="button" type="submit" value="Work">
+                </form>
+                <form id="Sleep" action="/sleep" method="POST">
+                    <input class="button" type="submit" value="Sleep">
+                </form>
+            </div>
+        }
+        else{
+            <div id="buttons">
+                <form id="Reset" action="/reset" method="POST">
+                    <input class="button" type="submit" value="Play Again">
+                </form>
+            </div>
+        }
+    }
+</body>
+</html>

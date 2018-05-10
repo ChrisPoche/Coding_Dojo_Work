@@ -1,0 +1,60 @@
+body{
+    padding: 20px;
+}
+#header{
+    margin: 0 auto;
+    text-align: center;
+}
+.attr-space{
+    border-right: 1px solid black;
+    padding-right: 15px;
+}
+.attr{
+    margin-right: 15px;
+    display: inline-block;
+}
+img{
+    width: 200px;
+    height: 200px;
+    /* outline: 1px solid black; */
+    margin: 0 190px 20px;
+}
+.box{
+    padding: 80px 10px 10px;
+    margin: 0 auto 20px;
+    width: 600px;
+    height: 275px;
+    outline: 2px solid black;
+    text-align: center;
+}
+.eat{
+    background-color: rgb(179, 204, 135);
+}
+.happy{
+    background-color: rgba(240, 227, 152, .8);
+}
+.earnmeal{
+    background-color: rgb(54, 85, 1);
+}
+.happier{
+    background-color: rgb(240, 227, 152);
+}
+.win, .sleep, .tired{
+    background-color: rgb(155, 171, 245);
+}
+.nomeals, .noplay, .nothungry, .dead{
+    background-color: rgb(253, 123, 134);
+}
+#buttons{
+    margin: 0 auto;
+    width: 500px;
+    display: table;
+    table-layout: fixed;
+}
+form{
+    display: table-cell;
+    text-align: center;
+}
+input{
+    width: 70px;
+}
