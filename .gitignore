@@ -2,5 +2,5 @@
 *package-lock.json
 *.vscode
 *DbConnection.cs
-*bin/Debug/netcoreapp2.0
+*bin/
 *appsettings.Development.json
