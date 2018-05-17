@@ -1,0 +1,11 @@
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/bin/Debug/netcoreapp2.0/ValidateForm.deps.json
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/bin/Debug/netcoreapp2.0/ValidateForm.runtimeconfig.json
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/bin/Debug/netcoreapp2.0/ValidateForm.runtimeconfig.dev.json
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/bin/Debug/netcoreapp2.0/ValidateForm.dll
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/bin/Debug/netcoreapp2.0/ValidateForm.pdb
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.csprojResolveAssemblyReference.cache
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.csproj.CoreCompileInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.AssemblyInfoInputs.cache
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.AssemblyInfo.cs
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.dll
+/Users/Chris/Desktop/GitHub/CSharp/ValidateForm/obj/Debug/netcoreapp2.0/ValidateForm.pdb

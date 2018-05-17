@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Errors";
+}
+<h2>@ViewData["Title"]</h2>
+<br>
+<div class="error">
+    @{
+        foreach(var error in ViewBag.errors)
+        {
+            if(@error.Errors.Count > 0)
+            {
+                <p>@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    }
+</div>
+<h2>Enter your information</h2> 
+<br>
+<br>
+<form method="POST" action="/">
+    First Name: <input type="text" name="first_name" value="@ViewBag.first_name"/>
+    <br>
+    <br>
+    Last Name: <input type="text" name="last_name" value="@ViewBag.last_name"/>
+    <br>
+    <br>
+    Age: <input type="number" name="age" value="@ViewBag.age"/>
+    <br>
+    <br>
+    Email: <input type="email" name="email" value="@ViewBag.email"/>
+    <br>
+    <br>
+    Password: <input type="password" name="password"/>
+    <br>
+    <br>
+    <input type="submit" value="Submit"/>
+</form>
