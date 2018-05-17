@@ -13271,11 +13271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Chris/Desktop/QuotingDojo/QuotingDojo.csproj",
+      "projectUniqueName": "/Users/Chris/Desktop/GitHub/CSharp/QuotingDojo/QuotingDojo.csproj",
       "projectName": "QuotingDojo",
-      "projectPath": "/Users/Chris/Desktop/QuotingDojo/QuotingDojo.csproj",
+      "projectPath": "/Users/Chris/Desktop/GitHub/CSharp/QuotingDojo/QuotingDojo.csproj",
       "packagesPath": "/Users/Chris/.nuget/packages/",
-      "outputPath": "/Users/Chris/Desktop/QuotingDojo/obj/",
+      "outputPath": "/Users/Chris/Desktop/GitHub/CSharp/QuotingDojo/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
