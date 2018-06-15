@@ -5,8 +5,7 @@ const render = () => {
 
     vanillaContainer.innerHTML = `
     <div class="clock">
-    <h2>The time is,</h2>
-    <h3>${new Date().toLocaleTimeString()}</h3>
+    <h2>The time is: ${new Date().toLocaleTimeString()}</h2>
     </div>
     `;
 
@@ -18,12 +17,7 @@ const render = () => {
         React.createElement(
             "h2",
             null,
-            "The time is,"),
-        React.createElement(
-            "h3",
-            null,
-            time
-        )
+            `The time is: ${time}`)
     ),reactContainer);
 }
 
