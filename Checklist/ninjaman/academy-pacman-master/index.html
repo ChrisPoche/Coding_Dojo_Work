@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NinjaMan</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .row {
+            height: 40px;
+        }
+        .wall{
+            background-color: blue;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        .sushi{
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-image: url('img/sushi.png');
+            background-size: contain;
+        }
+        .onigiri{
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-image: url('img/onigiri.png');
+            background-size: contain;
+        }
+        .blank{
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+        #ninjaman, #bluey, #pinky, #pumpky, #red, #scaredy{
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            background-image: url('img/ninja.gif');
+            background-size: contain;
+            position: absolute;
+            left: 40px;
+            top: 40px;
+        }
+        /* #bluey {
+            background-color: transparent;
+            background-image: url('img/bluey.gif');
+        } */
+        #sushi-count, #onigiri-count{
+            top: 40px;
+            right: 20px;
+            display: inline-block;
+            margin-left: 80px;
+        }
+        #onigiri-count{
+            top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="world"></div>
+    <div id="ninjaman"></div>
+    <!-- <div id="bluey"></div> -->
+    <h1 id="sushi-count"></h1>
+    <h1 id="onigiri-count"></h1>
+</body>
+<script type="text/javascript">
+    var world = [];
+    var boardSize = 20;
+    var firstLastRow = [];
+    for(var k=0;k<boardSize;k++){
+        firstLastRow.push([1]);
+    };
+    world.push(firstLastRow);
+
+
+    var sushiTotal = 0;
+    var onigiriTotal = 0;
+
+    for(var i=1; i<boardSize-1; i++){ // ROW
+        var row = [];
+        var wso;
+        if(i == 1){
+            row.push(1);
+            row.push(0);
+            for(var j=2; j<boardSize-1; j++){
+                var rand = Math.random();
+                if(rand < .333){
+                    wso = 1;
+                }
+                else if(rand >= .333 && rand < .667){
+                    wso = 2;
+                    sushiTotal++;
+                }
+                else{
+                    wso = 3;
+                    onigiriTotal++;
+                }
+                row.push(wso);
+            }
+            row.push(1);
+            world.push(row);
+        }
+        else {
+            row.push(1);
+            for(var j=1; j<boardSize-1; j++){
+                if(world[i-1][j] == 1 && row[j-1] == 1){
+                    row.push(1);
+                }
+                else{
+                    var rand = Math.random();
+                    if(row[j-1] != 1 || world[i-1][j] != 1){
+                        var touchingTwo = 0;
+                        if(row[j-1] != 1){
+                            if(row[j-2] != 1){
+                                touchingTwo ++;
+                            }
+                            if(world[i-1][j-1] != 1){
+                                touchingTwo ++;
+                            }
+                        }
+                        if(world[i-1][j] != 1){
+                            if(world[i-1][j-1] != 1){
+                                touchingTwo ++;
+                            }
+                            if(world[i-1][j+1] != 1){
+                                touchingTwo ++;
+                            }
+                        }
+                        if(touchingTwo <= 1){
+                            if(rand < .5){
+                                wso = 2;
+                                sushiTotal++;
+                            }
+                            else{
+                                wso = 3;
+                                onigiriTotal++;
+                            }
+                        }
+                        else{
+                            if(rand < .333){
+                                wso = 1;
+                            }
+                            else if(rand >= .333 && rand < .667){
+                                wso = 2;
+                                sushiTotal ++;
+                            }
+                            else{
+                                wso = 3;
+                                onigiriTotal ++;
+                            }
+                        }
+                    }
+                    row.push(wso);
+                }
+            }
+            row.push(1);
+            world.push(row);
+        }
+    }
+    world.push(firstLastRow);
+
+    var worldDict = {
+       0: 'blank',
+       1: 'wall',
+       2: 'sushi', 
+       3: 'onigiri', 
+    };
+    function drawWorld(){
+        var output = "";
+
+        for(var row = 0; row < world.length; row++){
+            output += "<div class='row'>";
+            for(var x=0; x<world[row].length; x++){
+                output += `<div class="${worldDict[world[row][x]]}"></div>`;
+            }
+            output += "</div>"
+        }
+        document.getElementById('world').innerHTML = output;
+    };
+    drawWorld();
+
+    var ninjaman = {
+        x: 1,
+        y: 1
+    }
+
+    function drawNinjaman(){
+        document.getElementById('ninjaman').style.top = ninjaman.y * 40 + "px";
+        document.getElementById('ninjaman').style.left = ninjaman.x * 40 + "px";
+
+    }
+    drawNinjaman();
+
+    // var xAxis;
+    // var yAxis;
+
+    // function setGhost(){
+    //     xAxis = Math.floor(Math.random()*(boardSize-2))+1;
+    //     yAxis = Math.floor(Math.random()*(boardSize-2))+1;
+    //     if(world[xAxis][yAxis] == 1){
+    //         setGhost();
+    //     }
+    //     return;
+    // }
+    // setGhost();
+    // var bluey = {
+    //     x: xAxis,
+    //     y: yAxis
+    // }
+
+    // function drawGhosts(){
+    //     document.getElementById('bluey').style.left = bluey.x * 40 + "px";
+    //     document.getElementById('bluey').style.top = bluey.y * 40 + "px";
+    // }
+    // drawGhosts();
+
+    // setInterval(chasingGhost,2000);
+
+    // function chasingGhost(){
+    //     var xDif = () => {
+    //         if(bluey.x > ninjaman.x){
+    //             return bluey.x - ninjaman.x;
+    //         }
+    //         else{
+    //             return ninjaman.x - bluey.x;
+    //         }
+    //     }
+    //     var yDif = () => {
+    //         if(bluey.y > ninjaman.y){
+    //             return bluey.y - ninjaman.y;
+    //         }
+    //         else{
+    //             return ninjaman.y - bluey.y;
+    //         }
+    //     }
+    //     if(xDif > yDif){
+    //         if(bluey.x > ninjaman.x && world[bluey.x-1][bluey.y] != 1){
+    //             bluey.x --;
+    //         }
+    //         else if(bluey.x < ninjaman.x && world[bluey.x+1][bluey.y] != 1){
+    //             bluey.x ++;
+    //         }
+    //     }
+    //     else{
+    //         if(bluey.y < ninjaman.y && world[bluey.x][bluey.y+1] != 1){
+    //             bluey.y ++;
+    //         }
+    //         else if(bluey.y > ninjaman.y && world[bluey.x][bluey.y-1] != 1){
+    //             bluey.y --;
+    //         }
+    //     }
+    //     drawGhosts();
+    // }
+
+    var sushiCount = 0;
+    var onigiriCount = 0;
+
+    function updateTotals(){
+        if(world[ninjaman.y][ninjaman.x] == 2){
+            sushiCount ++;
+        }
+        if(world[ninjaman.y][ninjaman.x] == 3){
+            onigiriCount ++;
+        }
+        document.getElementById('sushi-count').innerText = `Sushi eaten: ${sushiCount}/${sushiTotal}`;
+        document.getElementById('onigiri-count').innerText = `Onigiri eaten: ${onigiriCount}/${onigiriTotal}`;
+        return;
+    }
+    updateTotals();
+
+    document.onkeydown = function(e){
+        if(e.keyCode == 37 && world[ninjaman.y][ninjaman.x - 1] != 1){
+            ninjaman.x --;
+        }
+        if(e.keyCode == 39 && world[ninjaman.y][ninjaman.x + 1] != 1){
+            ninjaman.x ++;
+        }
+        if(e.keyCode == 38 && world[ninjaman.y - 1][ninjaman.x] != 1){
+            ninjaman.y --;
+        }
+        if(e.keyCode == 40 && world[ninjaman.y + 1][ninjaman.x] != 1){
+            ninjaman.y ++;
+        }
+        updateTotals();
+        world[ninjaman.y][ninjaman.x] = 0;
+        drawNinjaman();
+        drawWorld();
+    }
+</script>
+</html>
