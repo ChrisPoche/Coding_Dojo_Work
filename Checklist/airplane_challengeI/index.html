@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Airplane Challenge I</title>
+	<style type="text/css">
+		#background {
+			background-image: url("ocean.jpg");
+			width: 900px;
+			height: 700px;
+			background-size: cover;
+			display: inline-block;
+			vertical-align: top;
+		}
+		#player {
+			position: absolute;
+			width: 70px;
+			height: 75px;
+		}
+		.enemy {
+			position: absolute;
+			width: 70px;
+			height: 75px;
+		}
+		.sidebar {
+			display: inline-block;
+			vertical-align: top;
+		}
+		.changes{
+			margin-left: 50px;
+		}
+		.flip {
+			transform: rotate(180deg);
+		}
+		li:hover{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="background">
+		<div id="players"></div>
+		<div id="enemies"></div>
+	</div>
+	<div class="sidebar">
+		<div class="changes">
+			<h3>Set your background:</h3>
+			<ul>
+				<li id="ocean" onclick="changeBackdrop(this)">Ocean</li>
+				<li id="grass" onclick="changeBackdrop(this)">Grass</li>
+				<li id="space" onclick="changeBackdrop(this)">Space</li>
+			</ul>
+		</div>
+		<div class="changes">
+			<h3>Set your plane:</h3>
+			<ul>
+				<li id="grayPlane" onclick="changePlane(this)">Gray Jet</li>
+				<li id="blackPlane" onclick="changePlane(this)">Black Jet</li>
+				<li id="galagaPlane" onclick="changePlane(this)">Galaga</li>
+			</ul>
+		</div>
+		<div class="changes">
+			<h3>Set the enemy planes:</h3>
+			<ul>
+				<li id="blackEnemy" onclick="changeEnemy(this)">Black Jet</li>
+				<li id="grayEnemy" onclick="changeEnemy(this)">Gray Jet</li>
+				<li id="galagaEnemy" onclick="changeEnemy(this)">Galaga</li>
+			</ul>
+		</div>
+	</div>
+		
+	<script type="text/javascript">
+		
+		
+		var player = {left: 450, top: 620};
+		var enemies = [
+			{left: 350, top: 200},
+			{left: 450, top: 250},
+			{left: 550, top: 225},
+			{left: 250, top: 275},
+			{left: 650, top: 200},
+			{left: 450, top: 100}
+		]
+		
+		var plane = "player";
+		var enemyPlane = "enemy";
+		var flip = "";
+		var enemyFlip = "";
+		
+		function drawPlayer(plane){
+			let content = `<div id='player' class='${flip}' style='background-image: url("${plane}.png"); left:${player.left}px; top:${player.top}px'></div>`;
+			document.getElementById("players").innerHTML = content;
+		}
+		drawPlayer(plane);
+		
+		
+		function drawEnemies(){
+			let content = "";
+			for(var i=0; i<enemies.length; i++){
+				content += `<div class='enemy ${enemyFlip}' style='background-image: url("${enemyPlane}.png"); left:${enemies[i].left}px; top:${enemies[i].top}px'></div>`;	
+			}
+			document.getElementById("enemies").innerHTML = content;
+		}
+		drawEnemies();
+		
+		function cycleEnemy(enemyPlane){
+			var enemies = document.getElementsByClassName("enemy");
+			for(var i=0; i<enemies.length; i++){
+				enemies[i].style.backgroundImage = `url(${enemyPlane}.png)`;
+			}
+			drawEnemies();
+			return;
+		}
+		
+		function changeEnemy(click){
+			if(click.id == "blackEnemy"){
+				enemyFlip = "";
+				enemyPlane = "enemy";
+			}
+			else{
+				enemyFlip = "flip";
+				if(click.id == "grayEnemy"){
+					enemyPlane = "player";
+				}
+				else{
+					enemyPlane = "enemy_galaga";
+				}
+			}
+			cycleEnemy(enemyPlane);
+		}
+		
+		function changePlane(click){
+			if(click.id == "blackPlane"){
+				plane = "enemy";
+				flip = "flip"; 
+			}
+			else{
+				flip = ""; 
+				if(click.id == "galagaPlane"){
+					plane = "galaga";
+				}
+				else{
+					plane = "player";
+				}
+			}
+			drawPlayer(plane);
+		}
+		
+		document.onkeydown = function(e){
+			if(e.keyCode == 37 && player.left >= 20){ // left
+				player.left -= 10;
+			}
+			if(e.keyCode == 39 && player.left <= 825){ // right
+				player.left += 10;
+			}
+			if(e.keyCode == 38 && player.top >= 467){ // up
+				player.top -= 10;
+			}
+			if(e.keyCode == 40 && player.top <= 610){ // down
+				player.top += 10;
+			}
+			drawPlayer(plane);
+
+		}
+		
+	function changeBackdrop(click){
+		document.getElementById("background").style.backgroundImage = `url(${click.id}.jpg)`;
+	};
+
+	</script>
+</body>
+</html>
